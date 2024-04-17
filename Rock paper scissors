@@ -1,0 +1,85 @@
+import random
+print("*****WELCOME TO THE ROCK PAPER SCISSORS GAME*****")
+print("=================================================")
+print("it determine the winner based on the users and computers choice")
+print("Rock beats scissors,scissors beats paper and paper beats rockrock")
+
+r_p_c=[""" 
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)""",
+"""
+    _______
+---'    ____)____
+           ______)
+          _______)
+         _______)
+---.__________)""",
+"""
+   _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)"""]
+
+def compare():
+    score=0
+    if user_input=="rock":
+        if com_choice==r_p_c[0]:
+            print("oops! it's a tie")
+            print(f"score :{score}")
+        elif com_choice==r_p_c[1]:
+            print("computer win")
+            print(f"score :{score}")
+        elif com_choice==r_p_c[2]:
+            print("hurrah! you win the game")
+            print(f"score :{score + 1}")
+
+    if user_input == "paper":
+        if com_choice == r_p_c[0]:
+            print("hurrah! you win the game")
+            print(f"score :{score + 1}")
+        elif com_choice == r_p_c[1]:
+            print("oops it's a tie")
+            print(f"score :{score}")
+        elif com_choice == r_p_c[2]:
+            print("computer win")
+            print(f"score :{score}")
+
+    if user_input == "scissors":
+        if com_choice == r_p_c[0]:
+            print("computer win")
+            print(f"score :{score}")
+        elif com_choice == r_p_c[1]:
+            print("hurrah! you win the game")
+            print(f"score :{score + 1}")
+        elif com_choice == r_p_c[2]:
+            print("oops! it's a tie")
+            print(f"score :{score}")
+
+is_on=True
+while is_on:
+    #user input
+    user_input=input("enter your choice (rock,paper,scissors):").lower()
+    if user_input=="rock":
+        print("your choice is rock")
+        print(r_p_c[0])
+    elif user_input=="paper":
+        print("your choice is paper")
+        print(r_p_c[1])
+    elif user_input == "scissors":
+        print("your choice is scissors")
+        print(r_p_c[2])
+
+    #computer choice
+    com_choice=random.choice(r_p_c)
+    print("computer choice is :")
+    print(com_choice)
+    compare()
+    choose=input("enter 'y' to continue or 'x' to end the game").lower()
+    if choose=="x":
+        is_on=False
